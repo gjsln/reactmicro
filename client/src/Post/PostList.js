@@ -14,12 +14,11 @@ import CommentsList from '../Comments/CommentsList';
 function PostList() {
   const [posts, setPosts] = useState({});
 
-  const fetchPosts = async () => {
-    const res = await axios.get('http://localhost:5000/posts');
-    setPosts(res.data);
-  };
-
   useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get('http://localhost:5002/posts');
+      setPosts(res.data);
+    };
     fetchPosts();
   }, []);
 
@@ -34,7 +33,7 @@ function PostList() {
                 <Typography gutterBottom variant='h6' component='div'>
                   {post.title}
                 </Typography>
-                <CommentsList postId={post.id} />
+                <CommentsList comments={post.comments} />
               </CardContent>
             </CardActionArea>
             <CardActions>
