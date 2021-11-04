@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Box, Toolbar, Typography, Container } from '@mui/material';
 import PostCreate from './Post/PostCreate';
+import PostList from './Post/PostList';
 
 export default function App() {
   return (
@@ -15,10 +16,14 @@ export default function App() {
             </Toolbar>
           </AppBar>
         </Box>
-        <Typography gutterBottom='true' variant='h4'>
+        <Typography gutterBottom={true} variant='h4'>
           Create Post
         </Typography>
         <PostCreate />
+        <Typography gutterBottom={true} variant='h4'>
+          Post List
+        </Typography>
+        <PostList />
       </Container>
     </>
   );

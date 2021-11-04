@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 const port = 5000;
 const app = express();
 
 const posts = {};
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/posts', (req, res) => {

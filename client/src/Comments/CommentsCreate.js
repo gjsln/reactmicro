@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField } from '@mui/material';
-import useStyles from './style';
+import { Box, TextField, Button } from '@mui/material';
 import axios from 'axios';
+import useStyles from '../Post/style';
 
-function PostCreate(props) {
+function CommentsCreate({ postId }) {
   const classes = useStyles();
-  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (title) {
-      await axios.post('http://localhost:5000/posts', {
-        title,
+    if (content) {
+      await axios.post(`http://localhost:5001/posts/${postId}/comments`, {
+        content,
       });
     }
-    setTitle('');
+    setContent('');
   };
 
   return (
-    <>
+    <Box component='div'>
       <form>
         <Box className={`${classes.pt16} ${classes.pb16}`}>
           <TextField
-            value={title}
+            value={content}
             id='outlined-basic'
-            label='Title'
+            label='Comments'
             variant='outlined'
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setContent(e.target.value)}
           />
         </Box>
         <Box className={`${classes.pt16} ${classes.pb16}`}>
@@ -35,8 +35,8 @@ function PostCreate(props) {
           </Button>
         </Box>
       </form>
-    </>
+    </Box>
   );
 }
 
-export default PostCreate;
+export default CommentsCreate;
