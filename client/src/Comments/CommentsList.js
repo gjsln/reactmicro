@@ -11,9 +11,9 @@ function CommentsList({ comments }) {
       if (item.status === 'approved') {
         content = item.content;
       } else if (item.status === 'pending') {
-        content = 'This comment is still in pending';
+        content = 'This comment is awaiting for Moderation';
       } else if (item.status === 'rejected') {
-        content = 'This comment is got rejected';
+        content = 'This comment has been rejected';
       }
 
       return (

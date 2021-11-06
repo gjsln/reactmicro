@@ -40,5 +40,5 @@ app.post('/events', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is running on : ', port);
+  console.log('Post Server is running on : ', port);
 });
